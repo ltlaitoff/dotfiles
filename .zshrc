@@ -128,3 +128,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export ANDROID_SDK_ROOT=$ANDROID_HOME
 export ANDROID_AVD_HOME=~/.android/avd
 export PATH=$PATH:$ANDROID_AVD_HOME
+
+if uwsm check may-start; then
+    exec uwsm start hyprland.desktop
+fi
