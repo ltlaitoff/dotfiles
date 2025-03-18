@@ -22,6 +22,13 @@ return {
     -- and hide <leader>1
 
 		wk.register({
+			v = {
+			name = "Vim",
+				f = {"<cmd>Prettier<cr>", "Format via prettier"}
+			},
+			o = {
+				f = {"<cmd>ObsidianFollowLink<CR>", "Follow obsidian link"}
+			},
 			f = {
 				name = "Telescope",
 				f = {"<cmd>Telescope find_files<cr>", "Find files"},

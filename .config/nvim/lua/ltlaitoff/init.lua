@@ -1,6 +1,7 @@
 require("ltlaitoff.remap")
 require("ltlaitoff.set")
 require("ltlaitoff.init_lazy")
+require("ltlaitoff.langmap")
 
 local augroup = vim.api.nvim_create_augroup
 local ltlaitoffGroup = augroup('ltlaitoff', {})

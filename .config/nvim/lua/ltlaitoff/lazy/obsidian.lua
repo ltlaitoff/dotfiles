@@ -12,19 +12,21 @@ return {
   --   "BufNewFile path/to/my-vault/*.md",
   -- },
   dependencies = {
-    -- Required.
     "nvim-lua/plenary.nvim",
-
-    -- see below for full list of optional dependencies 👇
   },
   opts = {
-    workspaces = {
-      {
-        name = "conspects",
-        path = "~/conspects",
-      },
-    },
+		workspaces = {
+			{
+				name = "conspects",
+				path = "~/conspects",
+			},
+			{
+				name = "notes",
+				path = "~/notes",
+			},
+		},
 
-    -- see below for full list of options 👇
-  },
+		-- Disable frontmatter because I don't need this
+		disable_frontmatter = true,
+	},
 }
