@@ -72,7 +72,7 @@ local cmp = require('cmp')
       require("fidget").setup({})
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "tsserver", "gopls", "volar"  },
+        ensure_installed = { "lua_ls", "ts_ls", "gopls", "volar"  },
 				automatic_installation=true,
         handlers = {
           function(server_name) -- default handler (optional)
@@ -82,9 +82,9 @@ local cmp = require('cmp')
             })
           end,
 
-					["tsserver"] = function ()
+					["ts_ls"] = function ()
 						local lspconfig = require("lspconfig")
-						lspconfig.tsserver.setup({
+						lspconfig.ts_ls.setup({
 							-- other options
 							handlers = {
 								['textDocument/definition'] = function(err, result, method, ...)
