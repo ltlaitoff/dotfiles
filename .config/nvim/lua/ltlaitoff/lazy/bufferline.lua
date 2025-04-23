@@ -3,7 +3,11 @@ return {
 
   version = "*",
 
-  dependencies = 'nvim-tree/nvim-web-devicons',
+	dependencies = {
+		"echasnovski/mini.icons",
+	},
+  --
+  -- dependencies = 'nvim-tree/nvim-web-devicons',
 
   config = function()
     vim.opt.termguicolors = true

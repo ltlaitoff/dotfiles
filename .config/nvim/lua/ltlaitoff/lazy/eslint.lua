@@ -2,7 +2,7 @@ return {
   'MunifTanjim/eslint.nvim',
 
   dependencies = {
-    'jose-elias-alvarez/null-ls.nvim',
+    'nvimtools/none-ls.nvim',
     'neovim/nvim-lspconfig',
   },
 

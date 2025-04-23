@@ -37,3 +37,13 @@ vim.opt.guifont = { "Hack Nerd Font:h14", "monospace", ":h14" }
 -- vim.opt.guifont = { "MonoLisa, monospace", ":h16" }
 --
 vim.opt.conceallevel = 2
+
+-- UFO folding
+vim.opt.foldcolumn = "1" -- '0' is not bad
+vim.opt.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'

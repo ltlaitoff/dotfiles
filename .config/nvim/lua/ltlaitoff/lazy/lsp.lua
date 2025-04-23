@@ -1,86 +1,86 @@
 local function filter(arr, fn)
-  if type(arr) ~= "table" then
-    return arr
-  end
+	if type(arr) ~= "table" then
+		return arr
+	end
 
-  local filtered = {}
-  for k, v in pairs(arr) do
-    if fn(v, k, arr) then
-      table.insert(filtered, v)
-    end
-  end
+	local filtered = {}
+	for k, v in pairs(arr) do
+		if fn(v, k, arr) then
+			table.insert(filtered, v)
+		end
+	end
 
-  return filtered
+	return filtered
 end
 
 local function filterReactDTS(value)
-  return string.match(value.uri, 'react/index.d.ts') == nil
+	return string.match(value.uri, 'react/index.d.ts') == nil
 end
 
 
 return {
-    "neovim/nvim-lspconfig",
+	"neovim/nvim-lspconfig",
 
-    dependencies = {
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-cmdline',
-      'hrsh7th/nvim-cmp',
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-      "j-hui/fidget.nvim",
-    },
+	dependencies = {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		'hrsh7th/cmp-nvim-lsp',
+		'hrsh7th/cmp-buffer',
+		'hrsh7th/cmp-path',
+		'hrsh7th/cmp-cmdline',
+		'hrsh7th/nvim-cmp',
+		'L3MON4D3/LuaSnip',
+		'saadparwaiz1/cmp_luasnip',
+		"j-hui/fidget.nvim",
+	},
 
-    config = function()
-local cmp = require('cmp')
-        local cmp_lsp = require("cmp_nvim_lsp")
-        local capabilities = vim.tbl_deep_extend(
-            "force",
-            {},
-            vim.lsp.protocol.make_client_capabilities(),
-            cmp_lsp.default_capabilities())
+	config = function()
+		local cmp = require('cmp')
+		local cmp_lsp = require("cmp_nvim_lsp")
+		local capabilities = vim.tbl_deep_extend(
+			"force",
+			{},
+			vim.lsp.protocol.make_client_capabilities(),
+			cmp_lsp.default_capabilities())
 
-      local cmp_select = { behavior = cmp.SelectBehavior.Select }
+			local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-      cmp.setup({
-        snippet = {
-          expand = function(args)
-            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-          end,
-        },
-        window = {
-          -- completion = cmp.config.window.bordered(),
-          -- documentation = cmp.config.window.bordered(),
-        },
-        mapping = cmp.mapping.preset.insert({
-          ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-          ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-          ['<cr>'] = cmp.mapping.confirm({ select = true }),
-          ["<C-Space>"] = cmp.mapping.complete(),
-        }),
-        sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'luasnip' }, -- For luasnip users.
-        }, {
-          { name = 'buffer' },
-        })
-      })
+			cmp.setup({
+				snippet = {
+					expand = function(args)
+						require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+					end,
+				},
+				window = {
+					-- completion = cmp.config.window.bordered(),
+					-- documentation = cmp.config.window.bordered(),
+				},
+				mapping = cmp.mapping.preset.insert({
+					['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+					['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+					['<cr>'] = cmp.mapping.confirm({ select = true }),
+					["<C-Space>"] = cmp.mapping.complete(),
+				}),
+				sources = cmp.config.sources({
+					{ name = 'nvim_lsp' },
+					{ name = 'luasnip' }, -- For luasnip users.
+				}, {
+					{ name = 'buffer' },
+				})
+			})
 
-      require("fidget").setup({})
-      require("mason").setup()
-      require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "ts_ls", "gopls", "volar"  },
+			require("fidget").setup({})
+			require("mason").setup()
+			require("mason-lspconfig").setup({
+				ensure_installed = { "lua_ls", "ts_ls", "gopls", "volar", "emmet_language_server"  },
 				automatic_installation=true,
-        handlers = {
-          function(server_name) -- default handler (optional)
+				handlers = {
+					function(server_name) -- default handler (optional)
 
-            require("lspconfig")[server_name].setup({
-              capabilities = capabilities
-            })
-          end,
+						require("lspconfig")[server_name].setup({
+							capabilities = capabilities
+						})
+					end,
 
 					["ts_ls"] = function ()
 						local lspconfig = require("lspconfig")
@@ -113,22 +113,53 @@ local cmp = require('cmp')
 						})
 					end,
 
-          ["lua_ls"] = function()
-            local lspconfig = require("lspconfig")
-            lspconfig.lua_ls.setup {
-              capabilities = capabilities,
-              settings = {
-                Lua = {
-                  runtime = { version = "Lua 5.1" },
-                  diagnostics = {
-                    globals = { "vim", "it", "describe", "before_each", "after_each" },
-                  }
-                }
-              }
-            }
-          end,
-        }
-      })
-    end,
+					["lua_ls"] = function()
+						local lspconfig = require("lspconfig")
+						lspconfig.lua_ls.setup {
+							capabilities = capabilities,
+							settings = {
+								Lua = {
+									runtime = { version = "Lua 5.1" },
+									diagnostics = {
+										globals = { "vim", "it", "describe", "before_each", "after_each" },
+									}
+								}
+							}
+						}
+					end,
 
-}
+					["emmet_language_server"] = function ()
+						local lspconfig = require("lspconfig")
+
+						lspconfig.emmet_language_server.setup({
+							filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
+							-- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
+							-- **Note:** only the options listed in the table are supported.
+							init_options = {
+								---@type table<string, string>
+								includeLanguages = {},
+								--- @type string[]
+								excludeLanguages = {},
+								--- @type string[]
+								extensionsPath = {},
+								--- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
+								preferences = {},
+								--- @type boolean Defaults to `true`
+								showAbbreviationSuggestions = true,
+								--- @type "always" | "never" Defaults to `"always"`
+								showExpandedAbbreviation = "always",
+								--- @type boolean Defaults to `false`
+								showSuggestionsAsSnippets = false,
+								--- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
+								syntaxProfiles = {},
+								--- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
+								variables = {},
+							},
+						})
+					end,
+
+				}
+			})
+		end,
+
+	}
