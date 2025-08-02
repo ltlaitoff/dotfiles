@@ -26,15 +26,6 @@ return {
 				return { "treesitter", "indent" }
 			end,
 		},
-
-		init = function()
-			vim.keymap.set("n", "zR", function()
-				require("ufo").openAllFolds()
-			end)
-			vim.keymap.set("n", "zM", function()
-				require("ufo").closeAllFolds()
-			end)
-		end,
 	},
 	-- Folding preview, by default h and l keys are used.
 	-- On first press of h key, when cursor is on a closed fold, the preview will be shown.

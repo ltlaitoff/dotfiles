@@ -1,15 +1,15 @@
-local function escape(str)
-  -- You need to escape these characters to work correctly
-  local escape_chars = [[;,."|\]]
-  return vim.fn.escape(str, escape_chars)
-end
+-- local function escape(str)
+--   -- You need to escape these characters to work correctly
+--   local escape_chars = [[;,."|\]]
+--   return vim.fn.escape(str, escape_chars)
+-- end
 
 -- Recommended to use lua template string
-local en = [[`qwertyuiop[]asdfghjkl;'zxcvbnm<>/]]
-local ua = [['йцукенгшщзхїфівапролджєячсмитьбю.]]
+-- local en = [[`qwertyuiop[]asdfghjkl;'zxcvbnm<>/]]
+-- local ua = [['йцукенгшщзхїфівапролджєячсмитьбю.]]
 -- local ru = [[ёйцукенгшщзхъфывапролджэячсмить]]
-local en_shift = [[~QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>?]]
-local ua_shift = [['ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ.]]
+-- local en_shift = [[~QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>?]]
+-- local ua_shift = [['ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬБЮ.]]
 -- local ru_shift = [[ËЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ]]
 
 -- 'йцукенгшщзхїфівапролджєячсмитьбю.
@@ -21,8 +21,8 @@ local ua_shift = [['ЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖЄЯЧСМИТЬ
 --   \є',ґ\\,яz,чx,сc,мv,иb,тn,ьm,б\\,,ю.,,ЙQ,ЦW,УE,КR,ЕT,НY,НY,ГU,ШI,ЩO,ЗP,Х{,Ї},ФA,
 --   \ІS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж\\:,Є\\",Ґ\|,ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б\\<,Ю>,№#]]
 
-vim.opt.langmap = vim.fn.join({
-    -- | `to` should be first     | `from` should be second
-    escape(ua_shift) .. ';' .. escape(en_shift),
-    escape(ua) .. ';' .. escape(en),
-}, ',')
+-- vim.opt.langmap = vim.fn.join({
+--     -- | `to` should be first     | `from` should be second
+--     escape(ua_shift) .. ';' .. escape(en_shift),
+--     escape(ua) .. ';' .. escape(en),
+-- }, ',')

@@ -1,0 +1,54 @@
+{
+	"React Component with Interface": {
+		"prefix": "rci",
+		"scope": "typescriptreact",
+		"body": [
+			"import { cn } from \"@/shared/lib/cn\";",
+			"import { HTMLAttributes } from \"react\";",
+			"",
+			"export interface ${1:ComponentName}Props extends HTMLAttributes<HTMLDivElement> {",
+			"}",
+			"",
+			"export const ${1:ComponentName} = ({ className, ...props }: ${1:ComponentName}Props) => {",
+			"  return <div className={cn(\"\", className)} {...props}></div>;",
+			"};"
+		],
+		"description": "React Component with custom Props interface and cn utility"
+	},
+	"React Component Without interface": {
+		"prefix": "rcw",
+		"scope": "typescriptreact",
+		"body": [
+			"import { cn } from \"@/shared/lib/cn\";",
+			"import { HTMLAttributes } from \"react\";",
+			"",
+			"export const ${1:ComponentName} = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {",
+			"  return <div className={cn(\"\", className)} {...props}></div>;",
+			"};"
+		],
+		"description": "React Component without custom Props interface, using HTMLAttributes and cn utility"
+	},
+	"React Component with Interface Without imports": {
+		"prefix": "rciw",
+		"scope": "typescriptreact",
+		"body": [
+			"export interface ${1:ComponentName}Props extends HTMLAttributes<HTMLDivElement> {",
+			"}",
+			"",
+			"export const ${1:ComponentName} = ({ className, ...props }: ${1:ComponentName}Props) => {",
+			"  return <div className={cn(\"\", className)} {...props}></div>;",
+			"};"
+		],
+		"description": "React Component with custom Props interface and cn utility"
+	},
+	"React Component Without interface Without imports": {
+		"prefix": "rcww",
+		"scope": "typescriptreact",
+		"body": [
+			"export const ${1:ComponentName} = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {",
+			"  return <div className={cn(\"\", className)} {...props}></div>;",
+			"};"
+		],
+		"description": "React Component without custom Props interface, using HTMLAttributes and cn utility"
+	}
+}

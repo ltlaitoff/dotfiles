@@ -1,0 +1,9 @@
+{
+	"author": {
+		"prefix": "me",
+		"body": [
+			"@author Ivan Shchedrovskyi"
+		],
+		"description": "Identify the author of an item."
+	}
+}
