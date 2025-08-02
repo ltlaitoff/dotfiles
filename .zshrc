@@ -122,7 +122,7 @@ source /home/ltlaitoff/.asdf/asdf.sh
 # source <(ng completion script)
 
 export ANDROID_HOME=$HOME/android-sdk
-# export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+export JAVA_HOME=/usr/lib/jvm/default
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export ANDROID_SDK_ROOT=$ANDROID_HOME
@@ -132,3 +132,5 @@ export PATH=$PATH:$ANDROID_AVD_HOME
 if uwsm check may-start; then
     exec uwsm start hyprland.desktop
 fi
+
+[ -f "/home/ltlaitoff/.ghcup/env" ] && . "/home/ltlaitoff/.ghcup/env" # ghcup-env
