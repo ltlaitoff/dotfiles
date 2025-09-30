@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+
+script_dir=$(cd "$(dirname $BASH_SOURCE[0])"&> /dev/null | pwd)
+dry="0"
+
+while [[ $# > 0 ]]; do
+	if [[ $1 == "--dry" ]]; then 
+		dry="1"
+	fi
+
+	shift
+done
+
+log() {
+	if [[ $dry == "1" ]]; then 
+		echo "[DRY] $@"
+	else 
+		echo "$@"
+	fi
+}
+
+execute() {
+	log "Execute $@"
+
+	if [[ $dry == "1" ]]; then 
+		return
+	fi
+
+	"$@"
+}
+
+copy_dir() {
+	pushd $1 > /dev/null
+	to=$2
+	
+	dirs=$(find . -mindepth 1 -maxdepth 1 -type d)
+	
+	for dir in $dirs; do
+		dirName=$(basename $dir)
+
+		execute rm -rf $to/$dirName
+		execute cp -r $dirName $to/$dirName
+	done
+
+	popd > /dev/null	
+}
+
+copy_file() {
+	from=$1
+	to=$2
+
+	name=$(basename $from)
+
+	execute rm $to/$name
+	execute cp $name $to/$name
+}
+
+log "------- Dev env -------"
+
+XDG_CONFIG_HOME=$HOME/.config
+
+cd $script_dir/env
+log "Script dir is $script_dir"
+log "Config folder is $XDG_CONFIG_HOME"
+
+copy_dir .config $XDG_CONFIG_HOME
+copy_dir .local $HOME/.local
+
+copy_file .spaceshiprc.zsh $HOME
+copy_file .tmux.conf $HOME
+copy_file .tool-versions $HOME
+copy_file .zshenv $HOME
+copy_file .zshrc $HOME
+
+execute hyprctl reload
+execute pkill waybar
+execute hyprctl dispatch exec waybar
