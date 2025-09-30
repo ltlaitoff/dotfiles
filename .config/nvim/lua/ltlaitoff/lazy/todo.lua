@@ -17,6 +17,8 @@ return {
 	-- PERF: Optimize me
 	-- SECURITY: Some security comment
 	-- DEPRECATED: Deprecated functional
+	--
+	-- WTF: WHAT ARE HELL IS THIS?
 
 	opts = {
 		signs = true,    -- show icons in the signs column
@@ -33,6 +35,7 @@ return {
 			QUESTION = { icon = "", color = "#eab308", alt = { "Q" } },
 			HACK = { icon = "", color = "#fca5a5" },
 			CRITICAL = { icon = "", color = "#dc2626" },
+			WTF = { icon = "⚡", color = "#f43f5e" },
 			WARN = { icon = "", color = "warning", alt = { "WARNING" } },
 			XXX = { icon = "", color = "#22c55e" },
 			DEV = { icon = "", color = "#e879f9", alt = { "D" } },
