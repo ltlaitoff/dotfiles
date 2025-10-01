@@ -59,7 +59,9 @@ log "------- Dev env -------"
 
 XDG_CONFIG_HOME=$HOME/.config
 
+## DO NOT RUN THIS IN ROOT!!!
 cd $script_dir/env
+
 log "Script dir is $script_dir"
 log "Config folder is $XDG_CONFIG_HOME"
 
