@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+: '
+# Base
+hyprland
+hyprlock
+hypridle
+hyprsunset
+waybar
+wofi
+
+# Hypr addons
+hyprpicker # freeze on screenshot and color picker
+flameshot # screenshot
+swaync # notifications
+
+# Utils
+brightnessctl # brightness
+ddcutil # brightness for external monitor
+pavucontrol # audio controll
+
+# Audio
+pipewire
+wireplumber
+
+# UI
+nwg-look # Settings manager
+catppuccin-gtk-theme-latte
+
+## Screensharing
+xdg-desktop-portal-hyprland
+'
+
+sudo pacman -S --noconfirm --needed hyprland hyprlock hypridle hyprsunset waybar wofi \
+	hyprpicker flameshot swaync brightnessctl ddcutil pavucontrol pipewire \
+	wireplumber nwg-look xdg-desktop-portal-hyprland
+
+yay -S catppuccin-gtk-theme-latte
+

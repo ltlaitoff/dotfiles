@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+: '
+lib32-nvidia-utils
+lib32-opencl-nvidia
+linux-firmware-nvidia
+nvidia
+nvidia-settings
+nvidia-utils
+opencl-nvidia
+'
+
+# We always reinstall this shit because FUCK NVIDIA
+sudo pacman -S --noconfirm lib32-nvidia-utils lib32-opencl-nvidia \
+	linux-firmware-nvidia nvidia nvidia-settings nvidia-utils opencl-nvidia
+
