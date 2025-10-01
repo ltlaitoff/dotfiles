@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-script_dir=$(cd "$(dirname $BASH_SOURCE[0])"&> /dev/null | pwd)
 dry="0"
 
 while [[ $# > 0 ]]; do
@@ -58,12 +57,12 @@ copy_file() {
 log "------- Dev env -------"
 
 XDG_CONFIG_HOME=$HOME/.config
+DOTENV_DIR=$HOME/personal/dotfiles/env
 
-## DO NOT RUN THIS IN ROOT!!!
-cd $script_dir/env
+log "XDH config home is $XDG_CONFIG_HOME"
 
-log "Script dir is $script_dir"
-log "Config folder is $XDG_CONFIG_HOME"
+log "Env dir is: $DOTENV_DIR"
+cd $DOTENV_DIR
 
 copy_dir .config $XDG_CONFIG_HOME
 copy_dir .local $HOME/.local

@@ -108,6 +108,7 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias wwt="sh ~/wwt.sh"
+alias dev-env="~/personal/dotfiles/dev-env"
 alias stayfree="~/apps/stayfree-linux-x86_64.AppImage"
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 
