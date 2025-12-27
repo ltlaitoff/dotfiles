@@ -1,10 +1,18 @@
 return {
-	"tenxsoydev/size-matters.nvim",
+	-- Required by literraly everything
+	"nvim-lua/plenary.nvim",
 
-	config = function()
-		local fontSize = require('size-matters')
+	-- Icons
+	'nvim-tree/nvim-web-devicons',
 
-		fontSize.setup({
+	-- Comments by shortcut
+	'numToStr/Comment.nvim',
+
+	-- Change font size with `ctrl` + `+` and decrease with `-`
+	{
+		"tenxsoydev/size-matters.nvim",
+
+		opts = {
 			default_mappings = true,
 			-- font resize step size
 			step_size = 1,
@@ -16,8 +24,16 @@ return {
 				-- to address this, it can be displayed with a delay.
 				delay = 300,
 			},
+
 			-- the font loaded when using the reset cmd / shortcut
 			reset_font = vim.api.nvim_get_option("guifont"),
-		})
-	end;
+		},
+	},
+
+	-- Normal enter in {} and other
+	{
+		'windwp/nvim-autopairs',
+		event = "InsertEnter",
+		opts = {}
+	}
 }

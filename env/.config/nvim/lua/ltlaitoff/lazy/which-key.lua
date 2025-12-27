@@ -1,7 +1,7 @@
 return {
 	"folke/which-key.nvim",
 	dependencies = {
-		"echasnovski/mini.icons",
+		'nvim-tree/nvim-web-devicons',
 	},
 	event = "VeryLazy",
 	init = function()
@@ -94,9 +94,9 @@ return {
 				{ "<leader>f",  group = "Find" },
 				{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
 				-- { "<leader>ff", function() require("fff").toggle() end, desc = "Find files" },
-				{ "<leader>fg", "<cmd>Telescope live_grep<cr>",         desc = "Find grep" },
-				{ "<leader>fb", "<cmd>Telescope buffers<cr>",           desc = "Find buffers" },
-				{ "<leader>ft", "<cmd>Telescope git_status<cr>",        desc = "Git status" },
+				{ "<leader>fg", "<cmd>Telescope live_grep<cr>",  desc = "Find grep" },
+				{ "<leader>fb", "<cmd>Telescope buffers<cr>",    desc = "Find buffers" },
+				{ "<leader>ft", "<cmd>Telescope git_status<cr>", desc = "Git status" },
 			},
 			{
 				{ "<leader>b",  group = "Buffers" },

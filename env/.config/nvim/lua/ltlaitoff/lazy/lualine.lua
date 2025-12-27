@@ -1,10 +1,9 @@
 return {
-  'nvim-lualine/lualine.nvim',
-	
+	'nvim-lualine/lualine.nvim',
+
 	dependencies = {
-		"echasnovski/mini.icons",
+		'nvim-tree/nvim-web-devicons',
 	},
-  -- dependencies = { 'nvim-tree/nvim-web-devicons' },
 
 	-- opts = function(_, opts)
 	-- 	local trouble = require("trouble")
@@ -25,10 +24,10 @@ return {
 	-- 	-- })
 	-- end,
 
-  config = function()
-    require('lualine').setup({
-		extensions={'trouble', 'quickfix'}
+	config = function()
+		require('lualine').setup({
+			extensions = { 'trouble', 'quickfix' }
 
 		})
-  end;
+	end,
 }
