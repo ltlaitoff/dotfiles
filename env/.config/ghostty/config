@@ -48,5 +48,10 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-theme = Batman
+# Night theme
+# theme = Batman
+
+# Day theme
+theme = Catppuccin Latte
 background-opacity = 0.9
+font-size=16

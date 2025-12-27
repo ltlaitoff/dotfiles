@@ -5,7 +5,7 @@ return {
 	dependencies = {
 		"nvim-tree/nvim-web-devicons",
 	},
-	enabled = false,
+	-- enabled = false,
 	config = function()
 		require("nvim-tree").setup({
 		})
