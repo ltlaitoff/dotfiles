@@ -51,7 +51,7 @@ return {
 				-- ThePrimeagen/harpoon
 				{ "<leader>a", function() require("harpoon"):list():add() end,                                    desc = "Add to harpoon" },
 				{ "<C-e>",     function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end, desc = "" },
-				-- { "<C-h>",     function() require("harpoon"):list():select(1) end,                                desc = "" },
+				{ "<C-w>",     function() require("harpoon"):list():select(1) end,                                desc = "" },
 				{ "<C-t>",     function() require("harpoon"):list():select(2) end,                                desc = "" },
 				{ "<C-n>",     function() require("harpoon"):list():select(3) end,                                desc = "" },
 				{ "<C-s>",     function() require("harpoon"):list():select(4) end,                                desc = "" },

@@ -26,12 +26,8 @@ return {
 		-- keywords recognized as todo comments
 		keywords = {
 			TODO = { icon = "", color = "info" },
-			FIX = {
-				icon = "",
-				color = "#f87171",
-				alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
-			},
-			NOTE = { icon = "", color = "hint", alt = { "INFO" } },
+			FIX = { icon = "", color = "#f87171", alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, },
+			NOTE = { icon = "", color = "hint", alt = { "INFO", "N" } },
 			QUESTION = { icon = "", color = "#eab308", alt = { "Q" } },
 			HACK = { icon = "", color = "#fca5a5" },
 			CRITICAL = { icon = "", color = "#dc2626" },

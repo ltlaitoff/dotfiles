@@ -3,5 +3,5 @@ return {
 	'wakatime/vim-wakatime',
 
 	-- Discord Rich Presence, to show "I work at neovim in Discord"
-	-- 'andweeb/presence.nvim',
+	-- 'ancweeb/presence.nvim',
 }

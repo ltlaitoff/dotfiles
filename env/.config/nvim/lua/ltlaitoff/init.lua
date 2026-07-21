@@ -1,6 +1,5 @@
 require("ltlaitoff.set")
 require("ltlaitoff.init_lazy")
-require("ltlaitoff.langmap")
 
 -- local augroup = vim.api.nvim_create_augroup
 -- local ltlaitoffGroup = augroup('ltlaitoff', {})
@@ -34,3 +33,8 @@ require("ltlaitoff.langmap")
 --     pattern = "*",
 --     command = [[%s/\s\+$//e]],
 -- })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { "javascript", "go", "typescript", "c", "cpp", "gomod", "css", "html" },
+  callback = function() vim.treesitter.start() end,
+})

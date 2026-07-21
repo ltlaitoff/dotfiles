@@ -22,8 +22,8 @@ return {
 	"neovim/nvim-lspconfig",
 
 	dependencies = {
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
+		"mason-org/mason.nvim",
+		"mason-org/mason-lspconfig.nvim",
 		'hrsh7th/cmp-nvim-lsp',
 		'hrsh7th/cmp-buffer',
 		'hrsh7th/cmp-path',
@@ -37,13 +37,6 @@ return {
 
 	config = function()
 		local cmp = require('cmp')
-		local cmp_lsp = require("cmp_nvim_lsp")
-		local capabilities = vim.tbl_deep_extend(
-			"force",
-			{},
-			vim.lsp.protocol.make_client_capabilities(),
-			cmp_lsp.default_capabilities())
-
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 		cmp.setup({
@@ -73,93 +66,10 @@ return {
 		require("fidget").setup({})
 		require("mason").setup()
 		require("mason-lspconfig").setup({
-			ensure_installed = { "lua_ls", "ts_ls", "gopls", "vue_ls", "emmet_language_server", "jdtls", "angularls", "hls" },
+			ensure_installed = { "lua_ls", "ts_ls", "gopls", "vue_ls", "emmet_language_server", "jdtls", "angularls", "eslint" },
 			automatic_installation = true,
-			handlers = {
-				function(server_name) -- default handler (optional)
-					require("lspconfig")[server_name].setup({
-						capabilities = capabilities
-					})
-				end,
-
-				["ts_ls"] = function()
-					local lspconfig = require("lspconfig")
-					lspconfig.ts_ls.setup({
-						-- other options
-						handlers = {
-							['textDocument/definition'] = function(err, result, method, ...)
-								if vim.tbl_islist(result) and #result > 1 then
-									local filtered_result = filter(result, filterReactDTS)
-									return vim.lsp.handlers['textDocument/definition'](err, filtered_result, method, ...)
-								end
-
-								vim.lsp.handlers['textDocument/definition'](err, result, method, ...)
-							end
-						}
-					})
-				end,
-
-				["volar"] = function()
-					require("lspconfig").volar.setup({
-						filetypes = { "vue" },
-						init_options = {
-							vue = {
-								hybridMode = false,
-							},
-							typescript = {
-								tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
-							},
-						},
-					})
-				end,
-
-				["lua_ls"] = function()
-					local lspconfig = require("lspconfig")
-					lspconfig.lua_ls.setup {
-						capabilities = capabilities,
-						settings = {
-							Lua = {
-								runtime = { version = "Lua 5.1" },
-								diagnostics = {
-									globals = { "vim", "it", "describe", "before_each", "after_each" },
-								}
-							}
-						}
-					}
-				end,
-
-				["emmet_language_server"] = function()
-					local lspconfig = require("lspconfig")
-
-					lspconfig.emmet_language_server.setup({
-						filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
-						-- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
-						-- **Note:** only the options listed in the table are supported.
-						init_options = {
-							---@type table<string, string>
-							includeLanguages = {},
-							--- @type string[]
-							excludeLanguages = {},
-							--- @type string[]
-							extensionsPath = {},
-							--- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
-							preferences = {},
-							--- @type boolean Defaults to `true`
-							showAbbreviationSuggestions = true,
-							--- @type "always" | "never" Defaults to `"always"`
-							showExpandedAbbreviation = "always",
-							--- @type boolean Defaults to `false`
-							showSuggestionsAsSnippets = false,
-							--- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
-							syntaxProfiles = {},
-							--- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
-							variables = {},
-						},
-					})
-				end,
-
-			}
 		})
-	end,
 
+		require("ltlaitoff.lsp")
+	end,
 }

@@ -35,5 +35,8 @@ return {
 		'windwp/nvim-autopairs',
 		event = "InsertEnter",
 		opts = {}
-	}
+	},
+
+	-- Tree with all changes
+	'mbbill/undotree'
 }
