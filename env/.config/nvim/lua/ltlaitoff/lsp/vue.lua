@@ -1,27 +1,3 @@
--- For Mason v2
-local vue_language_server_path = vim.fn.expand '$MASON/packages' ..
-	'/vue-language-server' .. '/node_modules/@vue/language-server'
--- or even
--- local vue_language_server_path = vim.fn.stdpath('data') .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
-
-local vue_plugin = {
-	name = '@vue/typescript-plugin',
-	location = vue_language_server_path,
-	languages = { 'vue' },
-	configNamespace = 'typescript',
-}
-
-vim.lsp.config('vtsls', {
-	settings = {
-		vtsls = {
-			tsserver = {
-				globalPlugins = {
-					vue_plugin,
-				},
-			},
-		},
-	},
-	filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-})
+-- WARNING: Vue with TypeScript only will work with vtsls!
 
 vim.lsp.enable('vue_ls')

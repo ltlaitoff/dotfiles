@@ -48,7 +48,6 @@ return {
 		require("mason-lspconfig").setup({
 			ensure_installed = {
 				"lua_ls",
-				"ts_ls",
 				"gopls",
 				"emmet_language_server",
 				"jdtls",
@@ -56,8 +55,10 @@ return {
 				"eslint",
 				"tailwindcss",
 
+				-- "ts_ls",
+				"vtsls",
+
 				"vue_ls",
-				"vtsls"
 			},
 			automatic_installation = true,
 		})
