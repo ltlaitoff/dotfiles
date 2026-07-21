@@ -1,5 +1,3 @@
-print("gopls setup")
-
 local config = {
 	settings = {
 		gopls = {
