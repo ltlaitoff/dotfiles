@@ -35,6 +35,6 @@ require("ltlaitoff.init_lazy")
 -- })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { "javascript", "go", "typescript", "c", "cpp", "gomod", "css", "html" },
-  callback = function() vim.treesitter.start() end,
+	pattern = { "javascript", "go", "typescript", "c", "cpp", "gomod", "css", "html" },
+	callback = function() vim.treesitter.start() end,
 })

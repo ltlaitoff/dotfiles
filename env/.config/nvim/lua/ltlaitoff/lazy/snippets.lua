@@ -28,4 +28,3 @@ return {
 		-- reactSnippets.test_renderer_path = "@/test-utils"
 	end,
 }
-
