@@ -54,6 +54,7 @@ return {
 				"angularls",
 				"eslint",
 				"tailwindcss",
+				"yamlls",
 
 				-- "ts_ls",
 				"vtsls",

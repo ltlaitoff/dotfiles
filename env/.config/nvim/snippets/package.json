@@ -12,6 +12,10 @@
 			{
 				"language": ["typescriptreact", "javascript", "typescript"],
 				"path": "./jsdoc.json"
+			},
+			{
+				"language": ["go"],
+				"path": "./go.json"
 			}
 		]
 	}

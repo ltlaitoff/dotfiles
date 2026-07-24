@@ -65,6 +65,20 @@ return {
 			{
 				-- tpope/vim-fugitive
 				{ "<leader>gs", "<cmd>lua vim.cmd.Git()<CR>", desc = "Git" },
+				-- lewis6991/gitsigns.nvim
+				{ "<leader>gh", "<cmd>Gitsigns preview_hunk<CR>", desc = "Preview hunk" },
+				{ "<leader>gi", "<cmd>Gitsigns preview_hunk_inline<CR>", desc = "Preview hunk inline" },
+
+				{ "<leader>gr", "<cmd>Gitsigns reset_hunk<CR>", desc = "Reset hunk" },
+				{ "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", desc = "Stage hunk" },
+
+				{ "<leader>gR", "<cmd>Gitsigns reset_buffer<CR>", desc = "Reset buffer" },
+				{ "<leader>gS", "<cmd>Gitsigns stage_buffer<CR>", desc = "Stage buffer" },
+
+				{ "<leader>gn", "<cmd>Gitsigns next_hunk<CR>", desc = "Next hunk" },
+				{ "<leader>gp", "<cmd>Gitsigns prev_hunk<CR>", desc = "Prev hunk" },
+
+				{ "<leader>gd", "<cmd>Gitsigns diffthis<CR>", desc = "Diff this" },
 			},
 			{
 				-- kevinhwang91/nvim-ufo

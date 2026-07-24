@@ -1,0 +1,11 @@
+{
+	"errorNotNil": {
+		"prefix": "ern",
+		"body": [
+			"if err != nil {",
+			"\treturn err",
+			"}"
+		],
+		"description": "if err != nil { return err }"
+	}
+}
