@@ -56,6 +56,8 @@ return {
 				"tailwindcss",
 				"yamlls",
 
+				"clangd",
+
 				-- "ts_ls",
 				"vtsls",
 
