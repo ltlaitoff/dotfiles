@@ -55,7 +55,7 @@ return {
 				"eslint",
 				"tailwindcss",
 				"yamlls",
-
+				"bashls",
 				"clangd",
 
 				-- "ts_ls",

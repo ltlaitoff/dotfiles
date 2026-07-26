@@ -10,6 +10,7 @@ export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 export PATH="$HOME/.local/bin":$PATH
 export PATH=$PATH:/usr/local/bin/
+export PATH=$PATH:$HOME/.local/scripts
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -135,3 +136,4 @@ if uwsm check may-start; then
 fi
 
 [ -f "/home/ltlaitoff/.ghcup/env" ] && . "/home/ltlaitoff/.ghcup/env" # ghcup-env
+bindkey -s ^f "tmux-sessionizer\n"
