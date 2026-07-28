@@ -131,6 +131,17 @@ export ANDROID_SDK_ROOT=$ANDROID_HOME
 export ANDROID_AVD_HOME=~/.android/avd
 export PATH=$PATH:$ANDROID_AVD_HOME
 
+# ASDF Golang
+export GOPATH=$(asdf where golang)/packages
+export GOROOT=$(asdf where golang)/go
+# GOBIN is used for go install
+# By default GOBIN set to $GOPATH/bin.
+# For some reason asdf-golang set it to $(asdf where golang)/bin instead
+# To prevent confusions I prefer default path
+# SOURCE: https://pkg.go.dev/cmd/go#hdr-Compile_and_install_packages_and_dependencies
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+
 if uwsm check may-start; then
     exec uwsm start hyprland.desktop
 fi
