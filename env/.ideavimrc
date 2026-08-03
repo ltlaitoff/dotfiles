@@ -58,5 +58,9 @@ nnoremap <leader>bp :action RecentFiles<CR>
 " <leader>bf - Find open tabs/files (Telescope buffers alternative)
 nnoremap <leader>bf :action RecentFiles<CR>
 
+" Move visual selection down / up
+vnoremap J :action MoveLineDown<CR>
+vnoremap K :action MoveLineUp<CR>
+
 set showmode
 set clipboard^=unnamedplus
