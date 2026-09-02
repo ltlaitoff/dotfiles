@@ -37,8 +37,8 @@ copy_dir() {
 	for dir in $dirs; do
 		dirName=$(basename $dir)
 
-		execute rm -rf $to/$dirName
-		execute cp -r $dirName $to/$dirName
+		# execute rm -rf $to/$dirName
+		execute cp -rfT $dirName $to/$dirName
 	done
 
 	popd > /dev/null	
