@@ -19,6 +19,7 @@ return {
 	-- DEPRECATED: Deprecated functional
 	--
 	-- WTF: WHAT ARE HELL IS THIS?
+	-- S: Not simple enough
 
 	opts = {
 		signs = true, -- show icons in the signs column
@@ -39,6 +40,7 @@ return {
 			PERF = { icon = "", color = "#14b8a6", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
 			TEST = { icon = "", color = "#fbbf24", alt = { "TESTING", "PASSED", "FAILED" } },
 			DEPRECATED = { icon = "󰂭", color = "#64748b" },
+			SIMPLE = { icon = "🧩", color = "#f97316", alt = { "S", "SIMPLICITY"}}
 		},
 		colors = {
 			error = { "DiagnosticError", "ErrorMsg", "#DC2626" },

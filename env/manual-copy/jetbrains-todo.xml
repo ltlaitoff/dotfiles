@@ -1,0 +1,108 @@
+<!-- 
+This is config of my TODO tags in code for JetBrains IDEs
+Content of this file should be copied into `~/.config/JetBrains/
+{IDE}/.../editor.xml` file. It should replace existing TodoConfiguration section
+If you don't have one - edit configuration from UI first
+
+Important: Disable sync before adding this to not mess up anything
+Enable auto-sync after with OVERWRITING REMOTE WITH LOCAL instead of overwriting 
+local with remote, which will delete changes
+
+This file should be in sync with neovim todo config
+-->
+
+<component name="TodoConfiguration">
+	<multiLine>false</multiLine>
+	<pattern useCustomColors="true" pattern="\s(todo)(\([^\)]*\))?:\s">
+		<option name="FOREGROUND" value="ffffff" />
+		<option name="BACKGROUND" value="2563eb" />
+		<option name="FONT_TYPE" value="2" />
+		<option name="ERROR_STRIPE_COLOR" value="2563eb" />
+		<option name="EFFECT_TYPE" value="-1" />
+	</pattern>
+	<pattern useCustomColors="true" pattern="\s(fixme|bug|fixit|issue)(\([^\)]*\))?:\s">
+		<option name="FOREGROUND" value="ffffff" />
+		<option name="BACKGROUND" value="f87171" />
+		<option name="FONT_TYPE" value="2" />
+		<option name="ERROR_STRIPE_COLOR" value="f87171" />
+	</pattern>
+	<pattern useCustomColors="true" pattern="\s(note|info|n)(\([^\)]*\))?:\s">
+		<option name="FOREGROUND" value="ffffff" />
+		<option name="BACKGROUND" value="10b981" />
+		<option name="FONT_TYPE" value="2" />
+		<option name="ERROR_STRIPE_COLOR" value="10b981" />
+	</pattern>
+	<pattern useCustomColors="true" pattern="\s(question|q)(\([^\)]*\))?:\s">
+		<option name="FOREGROUND" value="ffffff" />
+		<option name="BACKGROUND" value="eab308" />
+		<option name="FONT_TYPE" value="2" />
+		<option name="ERROR_STRIPE_COLOR" value="eab308" />
+	</pattern>
+	<pattern useCustomColors="true" pattern="\s(hack)(\([^\)]*\))?:\s">
+		<option name="FOREGROUND" value="ffffff" />
+		<option name="BACKGROUND" value="fca5a5" />
+		<option name="FONT_TYPE" value="2" />
+		<option name="ERROR_STRIPE_COLOR" value="fca5a5" />
+	</pattern>
+	<pattern useCustomColors="true" pattern="\s(critical)(\([^\)]*\))?:\s">
+		<option name="FOREGROUND" value="ffffff" />
+		<option name="BACKGROUND" value="dc2626" />
+		<option name="FONT_TYPE" value="2" />
+		<option name="ERROR_STRIPE_COLOR" value="dc2626" />
+	</pattern>
+	<pattern useCustomColors="true" pattern="\s(wtf)(\([^\)]*\))?:\s">
+		<option name="FOREGROUND" value="ffffff" />
+		<option name="BACKGROUND" value="f43f5e" />
+		<option name="FONT_TYPE" value="2" />
+		<option name="ERROR_STRIPE_COLOR" value="f43f5e" />
+	</pattern>
+	<pattern useCustomColors="true" pattern="\s(warn|warning)(\([^\)]*\))?:\s">
+		<option name="FOREGROUND" value="ffffff" />
+		<option name="BACKGROUND" value="fbbf24" />
+		<option name="FONT_TYPE" value="2" />
+		<option name="ERROR_STRIPE_COLOR" value="fbbf24" />
+	</pattern>
+	<pattern useCustomColors="true" pattern="\s(xxx)(\([^\)]*\))?:\s">
+		<option name="FOREGROUND" value="ffffff" />
+		<option name="BACKGROUND" value="22c55e" />
+		<option name="FONT_TYPE" value="2" />
+		<option name="ERROR_STRIPE_COLOR" value="22c55e" />
+	</pattern>
+	<pattern useCustomColors="true" pattern="\s(dev|d)(\([^\)]*\))?:\s">
+		<option name="FOREGROUND" value="ffffff" />
+		<option name="BACKGROUND" value="e879f9" />
+		<option name="FONT_TYPE" value="2" />
+		<option name="ERROR_STRIPE_COLOR" value="e879f9" />
+	</pattern>
+	<pattern useCustomColors="true" pattern="\s(security|sec)(\([^\)]*\))?:\s">
+		<option name="FOREGROUND" value="ffffff" />
+		<option name="BACKGROUND" value="c026d3" />
+		<option name="FONT_TYPE" value="2" />
+		<option name="ERROR_STRIPE_COLOR" value="c026d3" />
+	</pattern>
+	<pattern useCustomColors="true" pattern="\s(perf|optim|performance|optimize)(\([^\)]*\))?:\s">
+		<option name="FOREGROUND" value="ffffff" />
+		<option name="BACKGROUND" value="14b8a6" />
+		<option name="FONT_TYPE" value="2" />
+		<option name="ERROR_STRIPE_COLOR" value="14b8a6" />
+	</pattern>
+	<pattern useCustomColors="true" pattern="\s(test|testing|passed|failed)(\([^\)]*\))?:\s">
+		<option name="FOREGROUND" value="ffffff" />
+		<option name="BACKGROUND" value="fbbf24" />
+		<option name="FONT_TYPE" value="2" />
+		<option name="ERROR_STRIPE_COLOR" value="fbbf24" />
+	</pattern>
+	<pattern useCustomColors="true" pattern="\s(deprecated)(\([^\)]*\))?:\s">
+		<option name="FOREGROUND" value="ffffff" />
+		<option name="BACKGROUND" value="64748b" />
+		<option name="FONT_TYPE" value="2" />
+		<option name="ERROR_STRIPE_COLOR" value="64748b" />
+	</pattern>
+	<pattern useCustomColors="true" pattern="\s(simple|simplicity|s)(\([^\)]*\))?:\s">
+		<option name="FOREGROUND" value="ffffff" />
+		<option name="BACKGROUND" value="f97316" />
+		<option name="FONT_TYPE" value="2" />
+		<option name="ERROR_STRIPE_COLOR" value="f97316" />
+	</pattern>
+</component>
+
