@@ -1,4 +1,5 @@
 require("ltlaitoff.lsp.clangd")
+require("ltlaitoff.lsp.css")
 require("ltlaitoff.lsp.emmet_language_server")
 require("ltlaitoff.lsp.eslint")
 require("ltlaitoff.lsp.gopls")

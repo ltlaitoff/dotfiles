@@ -47,6 +47,7 @@ return {
 		require("mason").setup()
 		require("mason-lspconfig").setup({
 			ensure_installed = {
+				"csskit",
 				"lua_ls",
 				"gopls",
 				"emmet_language_server",
