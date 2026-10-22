@@ -1,0 +1,168 @@
+/*
+ * Customization of the headers in the obsidian
+ * 
+ * For usage:
+ * Create a symlink between original file from global configuration 
+ * and local file in obsidian vault
+ *
+ * For development:
+ * To easy change this snippet we can create a hard-link between original
+ * file from global configuration and local snippet inside of the obsidian vault
+ * In that way we can update an local file to see live-changes AND our original
+ * file will be updated as well!
+ *  
+ * Based on: OHI https://github.com/ltlaitoff/obsidian-header-icons
+ * Author: Ivan Shchedrovskyi <github.com/ltlaitoff>
+ */
+
+body {
+	/* OHI */
+	--ohi-h1-icon: "❂";
+	--ohi-h2-icon: "❖";
+	--ohi-h3-icon: "✦";
+	--ohi-h4-icon: "◈";
+	--ohi-h5-icon: "✧";
+	--ohi-h6-icon: "❯";
+
+	--ohi-h1-color: #00e5ff;
+	--ohi-h2-color: #ff79c6;
+	--ohi-h3-color: #ffb86c;
+	--ohi-h4-color: #50fa7b;
+	--ohi-h5-color: #8be9fd;
+	--ohi-h6-color: #bd93f9;
+
+	--ohi-offset: 5px;
+	--ohi-offset-right: 8px;
+
+	/* Basic header styles */
+	/* --h1-size: calc(1em * 2); */
+	/* --h2-size: calc(1em * 1.6); */
+	/* --h3-size: calc(1em * 1.2); */
+	/* --h4-size: calc(1em * 1); */
+	/* --h5-size: calc(1em * 0.9); */
+	/* --h6-size: calc(1em * 0.9); */
+
+	--h1-color: var(--text-normal);
+	--h2-color: var(--text-normal);
+	--h3-color: var(--text-normal);
+	--h4-color: var(--text-normal);
+	--h5-color: var(--text-normal);
+	--h6-color: var(--text-normal);
+
+	/* --h1-variant: normal; */
+	/* --h2-variant: normal; */
+	/* --h3-variant: normal; */
+	/* --h4-variant: small-caps; */
+	/* --h5-variant: all-small-caps; */
+	/* --h6-variant: all-small-caps; */
+
+	--h1-weight: 600;
+	--h2-weight: 600;
+	--h3-weight: 600;
+	--h4-weight: 600;
+	--h5-weight: 600;
+	--h6-weight: 600;
+
+	/* --h1-line-height: calc(0.8 * var(--line-height-normal)); */
+	/* --h2-line-height: calc(0.85 * var(--line-height-normal)); */
+	/* --h3-line-height: calc(0.9 * var(--line-height-normal)); */
+	/* --h4-line-height: var(--line-height-normal); */
+	/* --h5-line-height: var(--line-height-normal); */
+	/* --h6-line-height: var(--line-height-normal); */
+
+	/* These can still be modified */
+	/*--hX-style: inherit;*/
+	/*--hX-font: inherit;*/
+	/*--hX-size: inherit;*/
+}
+
+/* OHI  */
+.markdown-rendered h1::before,
+.HyperMD-header :not(.cm-formatting-header).cm-header-1::before {
+	margin-left: calc(var(--ohi-offset) * 0);
+	margin-right: var(--ohi-offset-right);
+	content: var(--ohi-h1-icon);
+	color: var(--ohi-h1-color);
+}
+
+.markdown-rendered h2::before,
+.HyperMD-header :not(.cm-formatting-header).cm-header-2::before {
+	margin-left: calc(var(--ohi-offset) * 0);
+	margin-right: var(--ohi-offset-right);
+	content: var(--ohi-h2-icon);
+	color: var(--ohi-h2-color);
+}
+
+.markdown-rendered h3::before,
+.HyperMD-header :not(.cm-formatting-header).cm-header-3::before {
+	margin-left: calc(var(--ohi-offset) * 1);
+	margin-right: var(--ohi-offset-right);
+	content: var(--ohi-h3-icon);
+	color: var(--ohi-h3-color);
+}
+
+.markdown-rendered h4::before,
+.HyperMD-header :not(.cm-formatting-header).cm-header-4::before {
+	margin-left: calc(var(--ohi-offset) * 2);
+	margin-right: var(--ohi-offset-right);
+	content: var(--ohi-h4-icon);
+	color: var(--ohi-h4-color);
+}
+
+.markdown-rendered h5::before,
+.HyperMD-header :not(.cm-formatting-header).cm-header-5::before {
+	margin-left: calc(var(--ohi-offset) * 3);
+	margin-right: var(--ohi-offset-right);
+	content: var(--ohi-h5-icon);
+	color: var(--ohi-h5-color);
+}
+
+.markdown-rendered h6::before,
+.HyperMD-header :not(.cm-formatting-header).cm-header-6::before {
+	margin-left: calc(var(--ohi-offset) * 4);
+	margin-right: var(--ohi-offset-right);
+	content: var(--ohi-h6-icon);
+	color: var(--ohi-h6-color);
+}
+
+/* Custom styles for "Reference" */
+
+/*
+ * So, I want to render word "Reference" in second header with different
+ * styles, because it's actually an end of the my notes and yada yada
+ *
+ * CSS doesn't allow us to change styles of an particular text, so instead
+ * we need to install a plugin `Dymanic Text Highlighting` and set up it
+ * to add .reference class to every "##.Reference" regex
+ */
+
+.markdown-rendered h2[data-heading="Reference"],
+.cm-header:has(.reference) {
+	--reference-color-1: #00ccff;
+	--reference-color-2: #3366ff;
+	--reference-color-3: #aa33ff;
+}
+
+.cm-header.cm-formatting .reference {
+	background: none;
+	color: var(--reference-color-1);
+}
+
+.markdown-rendered h2[data-heading="Reference"],
+.cm-header:not(.cm-formatting) .reference {
+	background: linear-gradient(90deg,
+			var(--reference-color-1),
+			var(--reference-color-2),
+			var(--reference-color-3)
+		);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: transparent;
+	display: inline;
+}
+
+.markdown-rendered h2[data-heading="Reference"]::before,
+.HyperMD-header .cm-header-2:has(.reference)::before {
+	content: none;
+}
