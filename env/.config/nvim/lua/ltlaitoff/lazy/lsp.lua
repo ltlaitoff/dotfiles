@@ -46,25 +46,25 @@ return {
 		require("fidget").setup({})
 		require("mason").setup()
 		require("mason-lspconfig").setup({
-			ensure_installed = {
-				"csskit",
-				"lua_ls",
-				"gopls",
-				"emmet_language_server",
-				"jdtls",
-				"angularls",
-				"eslint",
-				"tailwindcss",
-				"yamlls",
-				"bashls",
-				"clangd",
-
-				-- "ts_ls",
-				"vtsls",
-
-				"vue_ls",
-			},
-			automatic_installation = true,
+			-- ensure_installed = {
+			-- 	"csskit",
+			-- 	"lua_ls",
+			-- 	"gopls",
+			-- 	"emmet_language_server",
+			-- 	"jdtls",
+			-- 	"angularls",
+			-- 	"eslint",
+			-- 	"tailwindcss",
+			-- 	"yamlls",
+			-- 	"bashls",
+			-- 	"clangd",
+			--
+			-- 	-- "ts_ls",
+			-- 	"vtsls",
+			--
+			-- 	"vue_ls",
+			-- },
+			-- automatic_installation = true,
 		})
 
 		require("ltlaitoff.lsp")

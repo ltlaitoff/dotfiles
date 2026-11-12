@@ -4,8 +4,12 @@ return {
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
+
+		---@type CatppuccinOptions
 		opts = {
-			term_colors = true,
+			flavour = "latte",
+
+			-- term_colors = true,
 			transparent_background = true,
 			dim_inactive = {
 				enabled = false, -- dims the background color of inactive window
@@ -46,11 +50,22 @@ return {
 					indentscope_color = "",
 				},
 			},
+			highlight_overrides = {
+				---@type CtpHighlightOverrideFn
+				all = function()
+					---@type { [string]: CtpHighlight}
+					return {
+						-- NvimTreeNormal = { fg = colors.none },
+						-- CmpBorder = { fg = "#3e4145" },
+						-- Comment = { fg = "#7c7f93" },
+					}
+				end,
+			},
 		},
 		config = function(_, opts)
 			require("catppuccin").setup(opts)
-			-- vim.cmd.colorscheme("catppuccin-macchiato")
-			vim.cmd.colorscheme("catppuccin-latte")
+
+			vim.cmd.colorscheme("catppuccin-nvim")
 		end,
 	},
 
