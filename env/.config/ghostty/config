@@ -51,9 +51,9 @@
 font-size=16
 
 # Night theme
-theme = Catppuccin Mocha
-background-opacity = 0.95
+# theme = Catppuccin Mocha
+# background-opacity = 0.95
 
 # Day theme
-# theme = Catppuccin Latte
-# background-opacity = 0.90
+theme = Catppuccin Latte
+background-opacity = 0.90
